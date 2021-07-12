@@ -1,0 +1,56 @@
+<body>
+  <div class="card text-center producto">
+  <div class="card-header">
+    <ul class="nav nav-tabs card-header-tabs">
+      <li class="nav-item">
+        <a class="nav-link" *ngIf='user.role === "Propietario"' aria-current="true" routerLink="/libreria" routerLinkActivate="active">Mi libreria</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" *ngIf='user.role === "Cliente"' aria-current="true" routerLink="/libreria" routerLinkActivate="active">Libreria</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" *ngIf='user.role === "Propietario"' href="#">Mis productos</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" *ngIf='user.role === "Cliente"' aria-current="true">Productos</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" *ngIf='user.role === "Propietario"' href="#" tabindex="-1" aria-disabled="true">Pedidos</a>
+      </li>
+      <li class="nav-item" *ngIf="hidden === false">
+        <a class="nav-link" *ngIf='user.role === "Propietario"' routerLink="/register-product" routerLinkActivate="active">Agregar Producto</a>
+      </li>
+    </ul>
+  </div>
+  <div class="card-body text-center" *ngIf="hidden === true">
+    <div class="info">
+      <h2 id="mensaje-producto">
+        {{message}}
+      </h2>
+      <a class="btn btn-secondary boton-catalogo" *ngIf='user.role === "Propietario"' routerLink="/register-product" routerLinkActivate="active">Agregar</a>
+    </div>
+  </div>
+  <div *ngIf="hidden === false">
+    <div class="card-body" *ngFor="let producto of productos">
+      <div class="card mb-3 row-cols-1 bloqueInfo" style="max-width: 540px;">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src="../../assets/img/libreria.png" class="img-fluid rounded-start imgProduct" alt="...">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">{{producto.name}}</h5>
+              <p class="card-text">{{producto.description}}</p>
+              <p id="idProducto">{{producto._id}}</p>
+              <p class="card-text"><small class="text-muted">en existencia: {{producto.stock}}</small></p>
+              <div class="">
+                <a class="btn btn-secondary" (click)="showProduct(producto)">Ver más</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>

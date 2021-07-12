@@ -1,0 +1,123 @@
+<body [@fadeIn]>
+  <div class="card libreria">
+  <div class="card-header">
+    <ul class="nav nav-tabs card-header-tabs">
+      <li class="nav-item">
+        <a class="nav-link active" *ngIf='user.role === "Propietario"' aria-current="true" href="#">Mi libreria</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" *ngIf='user.role === "Cliente"' aria-current="true" href="#">Libreria</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" *ngIf='user.role === "Propietario"' routerLink="/products-property" routerLinkActivate="active">Mis productos</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" *ngIf='user.role === "Cliente"' routerLink="/products-property" routerLinkActivate="active">Productos</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" *ngIf='user.role === "Propietario"' href="#" tabindex="-1" aria-disabled="true">Pedidos</a>
+      </li>
+    </ul>
+  </div>
+  <div class="card-body text-center">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-4 mr-5" id="imagenes">
+          <img src="../../assets/img/libreria.png" id="imagen" width="300" height="300" alt="Imagen por defecto para la libreria">
+          <div class="input-group mt-4 ">
+            <input type="file" #img *ngIf='user.role === "Propietario"' class="form-control" id="img" aria-describedby="inputGroupFileAddon04" aria-label="Upload" name="img" required>
+            <button class="btn btn-outline-secondary" *ngIf='user.role === "Propietario"'  type="button" id="inputGroupFileAddon04">Actualizar</button>
+          </div>
+        </div>
+        <div class="col-7 container-libreria">
+          <h5 class="card-title card-header mt-4 tarjetaTitulo">Nombre de la libreria</h5>
+          <div class="card mb-4 mt-4 tarjetaTexto">
+            <div class="card-body">
+              <p class="card-text">{{libreriaLocal.name}}</p>
+            </div>
+          </div>
+          <h5 class="card-title card-header tarjetaTitulo">Direccion de la libreria</h5>
+          <div class="card mb-4 mt-4 tarjetaTexto">
+            <div class="card-body">
+              <p class="card-text">{{libreriaLocal.direction}}</p>
+            </div>
+          </div>
+          <h5 class="card-title card-header tarjetaTitulo">Descripcion</h5>
+          <div class="card mb-4 mt-4 tarjetaTexto">
+            <div class="card-body">
+              <p class="card-text">{{libreriaLocal.description}}</p>
+            </div>
+          </div>
+          <div class="row align-items-start">
+            <div class="col">
+              <h5 class="card-title card-header tarjetaTitulo">Numero</h5>
+              <div class="card mb-4 mt-4 tarjetaTexto">
+                <div class="card-body">
+                  <p class="card-text">{{libreriaLocal.phone}}</p>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <h5 class="card-title card-header tarjetaTitulo">NIT</h5>
+              <div class="card mb-4 mt-4 tarjetaTexto">
+                <div class="card-body">
+                  <p class="card-text">{{libreriaLocal.NIT}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="contenedor-butones">
+            <button type="button" *ngIf='user.role === "Propietario"' class="btn btn-outline-secondary butones" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+              Actualizar Libreria
+            </button>
+            <button type="button" *ngIf='user.role === "Propietario"' class="btn btn-secondary butones" (click)="deleteLibreria()">
+              Eliminar Libreria
+            </button>
+          </div>
+          <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Actualizar</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body text-center">
+                  <form class="form-signin" #libreriaUpdate="ngForm" (ngSubmit)="updateLibreria()">
+                      <h1 class="h3 mb-3 font-weight-normal">Actualiza tu libreria</h1>
+                      <div class="form-group">
+                          <label class="h4 mt-2 mb-3 font-weight-normal" for="inputName">Nombre</label>
+                          <input [(ngModel)]="libreria.name" #name="ngModel" name="name" class="form-control" id="inputName" type="text" placeholder="your name" required>
+                      </div>
+                      <div class="form-group">
+                          <label class="h4 mt-2 mb-3 font-weight-normal" for="inputLastname">Direccion</label>
+                          <input [(ngModel)]="libreria.direction" #direction="ngModel" name="direction" class="form-control" id="inputLastname" type="text" placeholder="your lastname" required>
+                      </div>
+                      <div class="form-row">
+                          <div class="form-group">
+                              <label class="h4 mt-2 mb-3 font-weight-normal" for="inputUsername">descripcion</label>
+                              <textarea class="form-control" aria-label="With textarea" [(ngModel)]="libreria.description" #description="ngModel" name="description" required></textarea>
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          <label class="h4 mt-2 mb-3 font-weight-normal" for="inputEmail">Numero</label>
+                          <input [(ngModel)]="libreria.phone" #phone="ngModel" name="phone" class="form-control" type="number" id="inputPhone" placeholder="numero de telefono" required>
+                      </div>
+                      <div class="form-group">
+                          <label class="h4 mt-2 mb-3 font-weight-normal" for="inputEmail">NIT</label>
+                          <input [(ngModel)]="libreria.NIT" #NIT="ngModel" name="NIT" class="form-control" type="number" id="inputNIT" placeholder="NIT de la libreria" required>
+                      </div>
+                      <button type="submit" class="btn btn-primary mt-4" [disabled]="!libreriaUpdate.form.valid">Actualizar Libreria</button>
+                  </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>

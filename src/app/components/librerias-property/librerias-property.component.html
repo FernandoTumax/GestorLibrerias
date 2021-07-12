@@ -1,0 +1,40 @@
+<body [@fadeIn]>
+  <div class="card libreria ">
+      <div class="card-header encabezado">
+          <h5 class="titulo-encabezado">Mis Librerias</h5>
+          <a  class="btn btn-secondary boton-register" routerLink="/register-property" routerLinkActivate="active" *ngIf="hidden === false">Agregar</a>
+    </div>
+    <div class="card-body cuerpo" *ngIf="hidden === true">
+      <div class="info">
+        <h2 id="mensaje-libreria">
+          {{message}}
+        </h2>
+        <a  class="btn btn-secondary boton-catalogo" routerLink="/register-property" routerLinkActivate="active">Agregar</a>
+      </div>
+    </div>
+    <div *ngIf="hidden === false">
+      <div class="card-body" *ngFor="let libreria of librerias">
+        <div class="card mb-3 row-cols-1 bloqueInfo" style="max-width: 540px;">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src="../../assets/img/libreria.png" class="img-fluid rounded-start imgLibreria" alt="...">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">{{libreria.name}}</h5>
+              <p class="card-text">{{libreria.direction}}</p>
+              <p id="idLibreria">{{libreria._id}}</p>
+              <p class="card-text"><small class="text-muted">{{libreria.description}}</small></p>
+              <p class="card-text"><small class="text-muted">Numero de telefono: {{libreria.phone}}</small></p>
+              <p class="card-text"><small class="text-muted">Nuestro NIT: {{libreria.NIT}}</small></p>
+              <div class="btnDetalle">
+                <a class="btn btn-secondary" (click)="showLibreria(libreria)">Ver más detalles</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+</body>

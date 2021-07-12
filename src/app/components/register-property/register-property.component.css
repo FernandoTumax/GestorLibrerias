@@ -1,0 +1,88 @@
+@font-face {
+  font-family: "Lato-Bold";
+  src: url("../../../assets/font/Lato-Bold.ttf");
+  font-weight: bold;
+  font-style: Bold;
+}
+
+@font-face {
+  font-family: "Lato";
+  src: url("../../../assets/font/Lato-Regular.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body{
+  background-color: #E5E9F2;
+  padding-top: 2%;
+  padding-bottom: 15%;
+}
+
+.register-libreria{
+  position: relative;
+  left: 33.4%;
+  top: 15%;
+  background-color: white;
+  width: 600px;
+  height: 655px;
+  z-index: 10;
+  border: 1px solid #ccc;
+  box-shadow: 1px 1px 2px #ddd;
+}
+
+.titulo-libreria{
+  display: block !important;
+  margin-top: 5% !important;
+  font-size: 40px !important;
+  font-family: "Lato-Bold" !important;
+  color: rgba(71, 82, 94, 100) !important;
+  text-align: center;
+}
+
+#texto-libreria{
+  font-family: "Lato" !important;
+  font-size: 18px !important;
+  text-align: center;
+  color: rgba(129, 144, 165, 100);
+}
+
+.form-signin{
+  width: 100% !important;
+  max-width: 640px !important;
+  padding: 15px !important;
+  margin: auto !important;
+}
+
+.form-control{
+  position: relative !important;
+  box-sizing: border-box !important;
+  height: auto !important;
+  padding: 10px !important;
+  font-size: 15px !important;
+}
+
+.input-libreria{
+  position: relative;
+  left: 15%;
+  width: 400px !important;
+  height: 50px !important;
+}
+
+.textArea-libreria{
+  margin-bottom: 6% !important;
+}
+
+.btn{
+  background-color: rgba(71, 82, 94, 100) !important;
+  border-color: rgba(132, 146, 166, 100) !important;
+}
+
+#button{
+  color: white;
+}
+
+.boton-registrar{
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}

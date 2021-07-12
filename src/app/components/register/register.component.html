@@ -1,0 +1,25 @@
+<body [@fadeIn]>
+  <div class="register">
+    <form class="form-signin" #register="ngForm" (ngSubmit)="onSubmit(register)">
+      <h1 class="h3 mb-3 titulo-register">
+        Sign up
+      </h1>
+      <p id="texto-register">Registrate para empezar a buscar las mejores librerias</p>
+      <input type="text" placeholder="Your Username" class="form-control mt-3 mb-3 input-register" [(ngModel)]="user.username" #name="ngModel" name="username" id="inputUsername" required>
+      <div>
+        <input type="text" placeholder="Your name" class="form-control mt-3 mb-3 input-register" [(ngModel)]="user.name" #name="ngModel" name="name" id="inputName" required>
+        <input type="text" placeholder="Your Lastname" class="form-control mt-3 mb-3 input-register" [(ngModel)]="user.lastname" #name="ngModel" name="lastname" id="inputLastname" required>
+        <select class="form-select" aria-label="Default select example" class="form-control mt-3 mb-3 input-register" [(ngModel)]="user.role" name="role" id="selectRole" required>
+          <option selected class="select-role">Open this select menu</option>
+          <option value="Cliente">Cliente</option>
+          <option value="Propietario">Propietario</option>
+        </select>
+      </div>
+      <input type="email" placeholder="Your Email" class="form-control mt-3 mb-3 input-register" [(ngModel)]="user.email" #name="ngModel" name="email" id="inputEmail" required>
+      <input type="password" placeholder="Your Password" class="form-control mt-3 mb-3 input-register" [(ngModel)]="user.password" #name="ngModel" name="password" id="inputPassword" required>
+      <button type="submit" class="input-register btn" id="button" [disabled]="!register.form.valid">Sign up</button>
+      <a id="texto-footer-register" routerLink="/login" routerLinkActivate="active">¿Ya tienes una cuenta?</a>
+    </form>
+
+  </div>
+</body>

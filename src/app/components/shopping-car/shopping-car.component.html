@@ -1,0 +1,36 @@
+<body>
+  <div class="card carrito">
+    <h5 class="card-header titulo-encabezado">Mi carrito de compras</h5>
+    <div class="card-body carrito-container">
+      <div class="container">
+        <div class="card-body text-center" *ngIf="hidden === true">
+          <div class="info">
+            <h2 id="mensaje-producto">
+              {{message}}
+            </h2>
+          </div>
+        </div>
+        <div class="container-carrito" *ngIf="hidden === false">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col" class="text-center">Nombre</th>
+                <th scope="col" class="text-center">Precio</th>
+                <th scope="col" class="text-center">Cantidad</th>
+                <th scope="col" class="text-center">Opciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let product of products">
+                <td class="text-center">{{product.name}}</td>
+                <td class="text-center">{{product.price}}</td>
+                <td class="text-center">{{product.cantidad}}</td>
+                <td class="text-center"><button type="button" class="btn btn-secondary">Eliminar</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

@@ -1,0 +1,60 @@
+@font-face {
+  font-family: "Ubuntu";
+  src: url("../../../assets/font/Ubuntu-Regular.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.navbar{
+  border-bottom: 1px solid #ccc !important;
+  box-shadow: 1px 1px 2px #ddd;
+}
+
+.titulo-navbar{
+  font-size: 42px !important;
+  position: relative;
+  font-family: "Ubuntu";
+  cursor: pointer;
+  color: rgba(71, 82, 94, 100);
+  left: 39px;
+}
+
+.boton-carrito{
+  border: 0px !important;
+}
+
+.modal-carrito{
+  position: relative !important;
+  padding: 0px !important;
+  margin: 0px !important;
+  left: 73.5%;
+}
+
+.boton-register{
+  position: relative;
+  right: 55px;
+  width: 192.5px;
+  height: 50px;
+  font-size: 20px;
+  padding: 2%;
+}
+
+.boton-login{
+  position: relative;
+  right: 39px;
+  width: 192.5px;
+  height: 50px;
+  font-size: 20px;
+  padding: 2%;
+}
+
+.boton-menu{
+  position: relative;
+  right: 15px;
+  width: 192.5px;
+  height: 50px;
+  font-size: 20px;
+  padding: 4%;
+  padding-left: 8% !important;
+  background-color: rgba(71, 82, 94, 100) !important;
+}

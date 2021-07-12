@@ -1,0 +1,14 @@
+<body [@fadeIn]>
+  <div class="register">
+    <form class="form-signin" #login="ngForm" (ngSubmit)="onSubmit(login)">
+      <h1 class="h3 mb-3 titulo-register">
+        Sign in
+      </h1>
+      <p id="texto-register">Inicia sesion para poder empezar a comprar los materiales para tu familia</p>
+      <input type="email" placeholder="Your Email" class="form-control mt-3 mb-3 input-register" [(ngModel)]="user.email" #email="ngModel" name="email" id="inputEmail" required>
+      <input type="password" placeholder="Your Password" class="form-control mt-3 mb-3 input-register" [(ngModel)]="user.password" #password="ngModel" name="password" id="inputPassword" required>
+      <button type="submit" class="input-register btn" id="button" [disabled]="!login.form.valid">Sign in</button>
+      <a id="texto-footer-register" routerLink="/register" routerLinkActivate="active">¿No tienes una cuenta?</a>
+    </form>
+  </div>
+</body>

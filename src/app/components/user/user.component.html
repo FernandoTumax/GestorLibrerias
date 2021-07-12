@@ -1,0 +1,83 @@
+<body [@fadeIn]>
+  <div class="card usuario">
+  <h5 class="card-header titulo-encabezado">Mi Cuenta</h5>
+  <div class="card-body usuario-container">
+    <div class="container">
+        <div class="row align-items-center container-usuario">
+          <div class="col-4 mr-5" id="imagenes">
+              <img src="../../assets/img/perfil.png" class="imagenDelUsuario" width="300" height="300" alt="Imagen por defecto para el Usuario">
+                <div class="input-group mt-4 botonImagen">
+                  <input type="file" class="form-control" id="img" aria-describedby="inputGroupFileAddon04" aria-label="Upload" name="img" (change)="seleccionarFoto($event)" required>
+                  <button class="btn btn-outline-secondary"  type="button" id="inputGroupFileAddon04" (click)="subirFoto()">Actualizar</button>
+                </div>
+          </div>
+          <div class="col-7">
+            <h5 class="card-title card-header tarjetaTitulo">Nombre Completo</h5>
+            <div class="card mb-4 mt-4 tarjetaTexto">
+              <div class="card-body">
+                <p class="card-text" > {{userBack.name}}, {{userBack.lastname}}</p>
+              </div>
+            </div>
+            <h5 class="card-title card-header tarjetaTitulo"> Nombre de Usuario</h5>
+            <div class="card mb-4 mt-4 tarjetaTexto">
+              <div class="card-body">
+                <p class="card-text">{{userBack.username}}</p>
+              </div>
+            </div>
+            <h5 class="card-title card-header tarjetaTitulo"> Correo Electronico</h5>
+            <div class="card mb-4 mt-4 tarjetaTexto">
+                <div class="card-body">
+                    <p class="card-text">{{userBack.email}}</p>
+                </div>
+            </div>
+            <div class="contenedor-butones">
+              <button type="button" class="btn btn-outline-secondary butones" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                Actualizar Cuenta
+              </button>
+              <button type="button" class="btn btn-secondary butones" (click)="deleteUser()">
+                Eliminar Cuenta
+              </button>
+            </div>
+            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="staticBackdropLabel">Actualizar</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form class="form-signin" #userUpdate="ngForm" (ngSubmit)="updateUser()">
+                        <h1 class="h3 mb-3 font-weight-normal">Actualiza tu cuenta</h1>
+                        <div class="form-group">
+                            <label class="h4 mt-2 mb-3 font-weight-normal" for="inputName">Nombre</label>
+                            <input [(ngModel)]="user.name" #name="ngModel" name="name" class="form-control" id="inputName" type="text" placeholder="your name" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="h4 mt-2 mb-3 font-weight-normal" for="inputLastname">Apellidos</label>
+                            <input [(ngModel)]="user.lastname" #lastname="ngModel" name="lastname" class="form-control" id="inputLastname" type="text" placeholder="your lastname" required>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="h4 mt-2 mb-3 font-weight-normal" for="inputUsername">Nombre de usuario</label>
+                                <input [(ngModel)]="user.username" #username="ngModel" name="username" class="form-control" type="text" id="inputUsername" placeholder="username" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="h4 mt-2 mb-3 font-weight-normal" for="inputEmail">Email</label>
+                            <input [(ngModel)]="user.email" #email="ngModel" name="email" class="form-control" type="email" id="inputEmail" placeholder="email" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary mt-4" [disabled]="!userUpdate.form.valid">Actualizar Cuenta</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

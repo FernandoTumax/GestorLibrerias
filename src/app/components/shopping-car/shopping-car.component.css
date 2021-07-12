@@ -1,0 +1,53 @@
+@font-face {
+  font-family: "Ubuntu";
+  src: url("../../../assets/font/Ubuntu-Regular.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Lato";
+  src: url("../../../assets/font/Lato-Regular.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body{
+  background-color: rgba(229, 233, 242, 100);
+}
+
+.titulo-encabezado{
+  text-align: center;
+  font-family: "Ubuntu";
+  font-size: 40px;
+}
+
+#mensaje-producto{
+  position: relative;
+  font-family: "Lato";
+  font-size: 48px !important;
+  z-index: 10;
+}
+
+.carrito{
+    margin-left: 150px;
+    margin-right: 150px;
+    height: 80%;
+    top: 8%;
+}
+
+.tarjetaTitulo{
+    text-align: center;
+    font-family: "Ubuntu";
+    font-size: 25px;
+}
+
+.info{
+  position: relative;
+  top: 30%;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  align-items: center;
+  text-align: center;
+}

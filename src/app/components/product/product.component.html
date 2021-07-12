@@ -1,0 +1,99 @@
+<body>
+  <div class="card producto">
+    <h5 class="card-header titulo-encabezado" *ngIf='user.role === "Propietario"'>Mi producto</h5>
+    <h5 class="card-header titulo-encabezado" *ngIf='user.role === "Cliente"'>Producto</h5>
+    <div class="card-body text-center producto-container">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-4 mr-5">
+            <img src="../../assets/img/producto.png" width="300" height="300" alt="Imagen por defecto para el producto">
+          <div class="input-group mt-4">
+            <input type="file" class="form-control" *ngIf='user.role === "Propietario"' id="img" aria-describedby="inputGroupFileAddon04" aria-label="Upload" name="img">
+            <button class="btn btn-outline-secondary" *ngIf='user.role === "Propietario"'  type="button" id="inputGroupFileAddon04">Actualizar</button>
+          </div>
+          </div>
+          <div class="col-7 container-producto">
+            <h5 class="card-title card-header tarjetaTitulo">Nombre del producto</h5>
+            <div class="card mb-4 mt-4 tarjetaTexto">
+              <div class="card-body">
+                <p class="card-text">{{productLocal.name}}</p>
+              </div>
+            </div>
+            <h5 class="card-title card-header tarjetaTitulo">Descripcion del producto</h5>
+            <div class="card mb-4 mt-4 tarjetaTexto">
+              <div class="card-body">
+                <p class="card-text">{{productLocal.description}}</p>
+              </div>
+            </div>
+            <div class="row align-items-start">
+              <div class="col">
+                <h5 class="card-title card-header tarjetaTitulo">Precio</h5>
+                <div class="card mb-4 mt-4 tarjetaTexto">
+                  <div class="card-body">
+                    <p class="card-text">Precio: Q{{productLocal.price}}</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <h5 class="card-title card-header tarjetaTitulo">Stock</h5>
+                <div class="card mb-4 mt-4 tarjetaTexto">
+                  <div class="card-body">
+                    <p class="card-text">En existencia: {{productLocal.stock}}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="contenedor-butones">
+              <button type="button" *ngIf='user.role === "Propietario"' class="btn btn-outline-secondary butones" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                Actualizar Producto
+              </button>
+              <button type="button" *ngIf='user.role === "Cliente"' class="btn btn-secondary butones" (click)="agregarCarrito()">
+                Agregar al carrito
+              </button>
+              <button type="button" *ngIf='user.role === "Propietario"' class="btn btn-secondary butones" (click)="deleteProduct()">
+                Eliminar Producto
+              </button>
+            </div>
+            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="staticBackdropLabel">Actualizar</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <form class="form-signin" #productUpdate="ngForm" (ngSubmit)="updateProduct()">
+                        <h1 class="h3 mb-3 font-weight-normal">Actualiza tu libreria</h1>
+                        <div class="form-group">
+                            <label class="h4 mt-2 mb-3 font-weight-normal" for="inputName">Nombre</label>
+                            <input [(ngModel)]="product.name" #name="ngModel" name="name" class="form-control" id="inputName" type="text" placeholder="Nombre del producto" required>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="h4 mt-2 mb-3 font-weight-normal" for="inputUsername">descripcion</label>
+                                <textarea class="form-control" aria-label="With textarea" [(ngModel)]="product.description" #description="ngModel" name="descripcion del producto" required></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="h4 mt-2 mb-3 font-weight-normal" for="inputEmail">Precio</label>
+                            <input [(ngModel)]="product.price" #price="ngModel" name="price" class="form-control" type="number" id="inputPrice" placeholder="precio del producto" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="h4 mt-2 mb-3 font-weight-normal" for="inputEmail">Stock</label>
+                            <input [(ngModel)]="product.stock" #stock="ngModel" name="stock" class="form-control" type="number" id="inputStock" placeholder="stock del producto" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary mt-4" [disabled]="!productUpdate.form.valid">Actualizar Producto</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

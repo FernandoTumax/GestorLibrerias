@@ -1,0 +1,54 @@
+@font-face {
+  font-family: "Ubuntu";
+  src: url("../../../assets/font/Ubuntu-Regular.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Lato";
+  src: url("../../../assets/font/Lato-Regular.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body{
+  background-color: rgba(229, 233, 242, 100);
+}
+
+.libreria{
+  margin-left: 150px;
+  margin-right: 150px;
+  height: 90%;
+  top: 4%;
+}
+
+.container-libreria{
+  margin-left: 5%;
+}
+
+.botonImagen{
+  position: relative;
+  right: 15% !important;
+}
+
+.tarjetaTitulo{
+  text-align: center;
+  font-family: "Ubuntu";
+  font-size: 25px;
+}
+
+.contenedor-butones{
+  position: relative;
+  right: 3%;
+}
+
+.butones{
+  margin-left: 5% !important;
+}
+
+.tarjetaTexto{
+  text-align: center;
+  font-family: "Lato";
+  font-size: 20px;
+}

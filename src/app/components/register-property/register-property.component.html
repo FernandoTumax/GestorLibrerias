@@ -1,0 +1,21 @@
+<body>
+  <div class="register-libreria">
+    <form class="form-signin" #create="ngForm" (ngSubmit)="onSubmit(create)">
+      <h1 class="h3 mb-3 titulo-libreria">
+        Registrar libreria
+      </h1>
+      <p id="texto-libreria">Registrate una libreria y ponla en uso</p>
+      <input type="text" placeholder="Nombre de la libreria" class="form-control mt-3 mb-3 input-libreria" [(ngModel)]="libreria.name" #name="ngModel" name="name" required>
+      <input type="text" placeholder="Direccion de la libreria" class="form-control mt-3 mb-3 input-libreria" [(ngModel)]="libreria.direction" #direction="ngModel" name="direction" required>
+      <div class="input-group input-libreria textArea-libreria">
+        <span class="input-group-text" id="texto-libreria">Descripcion</span>
+        <textarea class="form-control" aria-label="With textarea" [(ngModel)]="libreria.description" #description="ngModel" name="description" required></textarea>
+      </div>
+      <input type="number" placeholder="Telefono de la libreria" class="form-control mt-3 mb-3 input-libreria" [(ngModel)]="libreria.phone" #phone="ngModel" name="phone" required>
+      <input type="number" placeholder="NIT de la libreria" class="form-control mt-3 mb-3 input-libreria" [(ngModel)]="libreria.NIT" #NIT="ngModel" name="NIT" required>
+      <div class="boton-registrar">
+        <button type="submit" class="input-register btn boton-registrar" id="button" [disabled]="!create.form.valid">Registrar</button>
+      </div>
+    </form>
+  </div>
+</body>
