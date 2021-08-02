@@ -106,6 +106,24 @@ private extractData(res:any){
     }))
   }
 
+  uploadImg(id:any, file:any, fileBuffer:any){
+    let config = {
+      headers: new HttpHeaders({
+        'Content-Type': file.type,
+        'Authorization': 'Bearer ' + this.getToken()
+      })
+    }
+    console.log(fileBuffer);
+    return this.http.put(`${this.uri}productos/${id}/image`, file, config).pipe(map(this.extractData), catchError((error:any) => {
+      Swal.fire({
+        icon: 'error',
+        title: 'Error al subir una imagen',
+        text: error.error.message
+      })
+      return throwError(error);
+    }))
+  }
+
   deleteProduct(idProduct:any, idLibreria:any){
     return this.http.delete(`${this.uri}productos/${idProduct}/${idLibreria}`, this.httpOptionsAuth).pipe(map(this.extractData), catchError((error:any) => {
       Swal.fire({

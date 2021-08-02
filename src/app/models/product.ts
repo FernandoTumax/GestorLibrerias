@@ -5,5 +5,6 @@ export class Product{
     public price:number,
     public stock:number,
     public img:string
-  ){}
+  ){
+  }
 }

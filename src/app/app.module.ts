@@ -24,7 +24,6 @@ import { RegisterProductComponent } from './components/register-product/register
 import { ProductComponent } from './components/product/product.component';
 import { LibreriaClientComponent } from './components/libreria-client/libreria-client.component';
 import { ShoppingCarComponent } from './components/shopping-car/shopping-car.component';
-import { PieChartReportComponent } from './components/pie-chart-report/pie-chart-report.component';
 
 
 @NgModule({
@@ -46,7 +45,6 @@ import { PieChartReportComponent } from './components/pie-chart-report/pie-chart
     ProductComponent,
     LibreriaClientComponent,
     ShoppingCarComponent,
-    PieChartReportComponent,
   ],
   imports: [
     BrowserModule,

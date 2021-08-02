@@ -10,4 +10,4 @@
 }
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body {background-color: rgba(229, 233, 242, 100) !important; margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

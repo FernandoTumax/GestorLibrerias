@@ -18,6 +18,19 @@ body{
   padding-bottom: 15%;
 }
 
+#texto-libreria{
+  font-family: "Lato" !important;
+  font-size: 18px !important;
+  text-align: center;
+  color: rgba(129, 144, 165, 100);
+}
+
+.margen{
+  position: relative;
+  left: 15%;
+}
+
+
 .register-libreria{
   position: relative;
   left: 33.4%;

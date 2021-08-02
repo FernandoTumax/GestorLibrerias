@@ -12,11 +12,15 @@
     </div>
     <div  *ngIf="hidden === false">
       <div class="row row-cols-1 row-cols-md-2 text-center contenedor-libreria">
+
         <div class="card-body" *ngFor="let libreria of librerias">
           <div class="card mb-3 row-cols-1 bloqueInfo" style="max-width: 540px;">
             <div class="row g-0">
-              <div class="col">
+              <div class="col" *ngIf='libreria.img === ""' >
                 <img src="../../assets/img/libreria.png" class="img-fluid rounded-start imgLibreria" alt="Imagen de la libreria">
+              </div>
+              <div class="col" *ngIf='libreria.img !== ""'>
+                <img src="{{libreria.img}}" id="imagenExiste"  class="img-fluid rounded-start imgLibreria1" alt="Imagen de la libreria">
               </div>
               <div class="col">
                 <div class="card-body text-center">

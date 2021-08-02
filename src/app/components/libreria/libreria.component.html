@@ -25,8 +25,8 @@
         <div class="col-4 mr-5" id="imagenes">
           <img src="../../assets/img/libreria.png" id="imagen" width="300" height="300" alt="Imagen por defecto para la libreria">
           <div class="input-group mt-4 ">
-            <input type="file" #img *ngIf='user.role === "Propietario"' class="form-control" id="img" aria-describedby="inputGroupFileAddon04" aria-label="Upload" name="img" required>
-            <button class="btn btn-outline-secondary" *ngIf='user.role === "Propietario"'  type="button" id="inputGroupFileAddon04">Actualizar</button>
+            <input type="file" #img *ngIf='user.role === "Propietario"' class="form-control" id="img" aria-describedby="inputGroupFileAddon04" (change)="seleccionarFoto($event)" aria-label="Upload" name="img" required>
+            <button class="btn btn-outline-secondary" *ngIf='user.role === "Propietario"'  type="button" id="inputGroupFileAddon04" (click)="subirFoto()">Actualizar</button>
           </div>
         </div>
         <div class="col-7 container-libreria">

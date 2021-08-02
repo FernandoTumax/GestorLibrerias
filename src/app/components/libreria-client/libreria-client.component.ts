@@ -14,6 +14,7 @@ export class LibreriaClientComponent implements OnInit {
   public librerias = [] as any;
   public search:any;
   public hidden:any;
+  public imagen:any;
   public message = "Lo sentimos. Por el momento no existen librerias D:"
 
   constructor(private restLibreria:RestLibreriaService, private router:Router) { }
@@ -28,6 +29,15 @@ export class LibreriaClientComponent implements OnInit {
     }else{
       this.hidden = false;
     }
+
+    const selectImg = document.getElementsByTagName('img')[1];
+    this.librerias.forEach((elemento:any) => {
+      if(elemento.img != ""){
+        selectImg.removeAttribute('src');
+        selectImg.setAttribute('src', elemento.img)
+      }
+    })
+
   }
 
   showLibreria(libreria:any){

@@ -20,6 +20,8 @@ export class ProductComponent implements OnInit {
   public uri:any;
   public productLocal:any;
   public productBack:any;
+  public imagenSeleccionada:any;
+  public imageBuffer:any;
 
 
   constructor(private restProduct:RestProductService, private router:Router, private restLibreria:RestLibreriaService, private restUser:RestUserService) {
@@ -43,6 +45,9 @@ export class ProductComponent implements OnInit {
   }
 
   agregarCarrito(){
+    let user = this.restUser.getUser();
+    let shopping = user.shoppingCar;
+    console.log(shopping);
     this.restUser.shoppingCar(this.productLocal).subscribe((res:any) => {
       Swal.fire({
         icon: 'success',
@@ -65,6 +70,26 @@ export class ProductComponent implements OnInit {
         timer: 5500
       })
       window.location.reload();
+    })
+  }
+
+  seleccionarFoto(event:any){
+    this.imagenSeleccionada = event.target.files[0];
+    console.log(this.imagenSeleccionada);
+  }
+
+  subirFoto(){
+    this.imagenSeleccionada.arrayBuffer().then((buff:any) => {
+      this.imageBuffer = new Uint8Array(buff);
+      this.restProduct.uploadImg(this.productLocal._id, this.imagenSeleccionada, this.imageBuffer).subscribe((res:any) => {
+        Swal.fire({
+          icon: 'success',
+          title: `La imagen para el producto ${this.productLocal.name} ha sido actualizada`,
+          showConfirmButton: true,
+          timer: 5500
+        })
+        window.location.reload();
+      })
     })
   }
 

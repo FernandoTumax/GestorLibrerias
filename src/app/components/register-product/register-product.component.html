@@ -10,8 +10,10 @@
         <span class="input-group-text" id="texto-producto">Descripcion</span>
         <textarea class="form-control" aria-label="With textarea" required [(ngModel)]="product.description" #description="ngModel" name="description" required></textarea>
       </div>
-      <input type="number" placeholder="precio del producto" class="form-control mt-3 mb-3 input-producto" [(ngModel)]="product.price" #price="ngModel" name="price" required>
-      <input type="number" placeholder="cantidad en existencia del producto" class="form-control mt-3 mb-3 input-producto" [(ngModel)]="product.stock" #stock="ngModel" name="stock" required>
+      <label for="price" id="texto-producto" class="margen">Precio:</label>
+      <input type="number" id="price" placeholder="Precio del producto" class="form-control mt-3 mb-3 input-producto" [(ngModel)]="product.price" #price="ngModel" name="price" required>
+      <label for="cantidad" id="texto-producto" class="margen">Cantidad:</label>
+      <input type="number" id="cantidad" placeholder="cantidad en existencia del producto" class="form-control mt-3 mb-3 input-producto" [(ngModel)]="product.stock" #stock="ngModel" name="stock" required>
       <div class="boton-registrar">
         <button type="submit" class="input-register btn boton-registrar" id="button" [disabled]="!create.form.valid">Registrar</button>
       </div>

@@ -115,6 +115,24 @@ export class RestLibreriaService {
     }))
   }
 
+  uploadImg(id:any, file:any, fileBuffer:any){
+    let config = {
+      headers: new HttpHeaders({
+        'Content-Type': file.type,
+        'Authorization': 'Bearer ' + this.getToken()
+      })
+    }
+    console.log(fileBuffer);
+    return this.http.put(`${this.uri}librerias/${id}/image`, file, config).pipe(map(this.extractData), catchError((error:any) => {
+      Swal.fire({
+        icon: 'error',
+        title: 'Error al subir la imagen de la libreria',
+        html: `<h3>${error.error.message}</h3>`
+      })
+      return throwError(error.error.message);
+    }))
+  }
+
   deleteLibreria(id:any){
     return this.http.delete(`${this.uri}librerias/${id}`, this.httpOptionsAuth).pipe(map(this.extractData), catchError((error:any) => {
       Swal.fire({

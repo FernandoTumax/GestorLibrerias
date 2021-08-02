@@ -11,7 +11,9 @@
         <span class="input-group-text" id="texto-libreria">Descripcion</span>
         <textarea class="form-control" aria-label="With textarea" [(ngModel)]="libreria.description" #description="ngModel" name="description" required></textarea>
       </div>
+      <label for="price" id="texto-libreria" class="margen">Telefono:</label>
       <input type="number" placeholder="Telefono de la libreria" class="form-control mt-3 mb-3 input-libreria" [(ngModel)]="libreria.phone" #phone="ngModel" name="phone" required>
+      <label for="price" id="texto-libreria" class="margen">NIT:</label>
       <input type="number" placeholder="NIT de la libreria" class="form-control mt-3 mb-3 input-libreria" [(ngModel)]="libreria.NIT" #NIT="ngModel" name="NIT" required>
       <div class="boton-registrar">
         <button type="submit" class="input-register btn boton-registrar" id="button" [disabled]="!create.form.valid">Registrar</button>

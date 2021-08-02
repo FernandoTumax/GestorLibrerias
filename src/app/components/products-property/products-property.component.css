@@ -27,6 +27,11 @@ body{
   left: 25%;
 }
 
+.product-position{
+  position: relative;
+  left: 27%;
+}
+
 .info{
   position: relative;
   top: 30%;
@@ -40,7 +45,7 @@ body{
 .producto{
     margin-left: 150px;
     margin-right: 150px;
-    height: 80%;
+    height: auto;
     top: 8%;
 }
 

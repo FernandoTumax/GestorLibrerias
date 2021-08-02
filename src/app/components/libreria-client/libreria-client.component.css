@@ -42,6 +42,11 @@ body{
   align-items: center;
   position: relative;
 }
+.imgLibreria1{
+  align-items: center;
+  position: relative;
+  top: 30%;
+}
 
 .btnDetalle{
   position: relative;
@@ -70,7 +75,7 @@ body{
 .libreria{
     margin-left: 150px;
     margin-right: 150px;
-    height: 80%;
+    height: auto;
     top: 8%;
 }
 
@@ -83,6 +88,9 @@ body{
   font-size: 18px;
     background-color: rgba(71, 82, 94, 100) !important;
 }
+.cardBodyLibreria{
+  height: 100% !important;
+}
 
 .titulo-encabezado{
   text-align: center;
@@ -94,7 +102,7 @@ body{
     display: inline-block;
     margin: 30px !important;
     width: 550px;
-    height: 260px;
+    height: 295px;
 }
 
 .contenedor-libreria{

@@ -8,8 +8,8 @@
           <div class="col-4 mr-5">
             <img src="../../assets/img/producto.png" width="300" height="300" alt="Imagen por defecto para el producto">
           <div class="input-group mt-4">
-            <input type="file" class="form-control" *ngIf='user.role === "Propietario"' id="img" aria-describedby="inputGroupFileAddon04" aria-label="Upload" name="img">
-            <button class="btn btn-outline-secondary" *ngIf='user.role === "Propietario"'  type="button" id="inputGroupFileAddon04">Actualizar</button>
+            <input type="file" class="form-control" *ngIf='user.role === "Propietario"' id="img" aria-describedby="inputGroupFileAddon04" aria-label="Upload" name="img" (change)="seleccionarFoto($event)" required>
+            <button class="btn btn-outline-secondary" *ngIf='user.role === "Propietario"'  type="button" id="inputGroupFileAddon04" (click)="subirFoto()">Actualizar</button>
           </div>
           </div>
           <div class="col-7 container-producto">

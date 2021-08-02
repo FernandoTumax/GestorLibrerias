@@ -16,6 +16,11 @@ body{
   background-color: rgba(229, 233, 242, 100);
 }
 
+.boton-enviar{
+  position: relative;
+  left: 71.5%;
+}
+
 .titulo-encabezado{
   text-align: center;
   font-family: "Ubuntu";

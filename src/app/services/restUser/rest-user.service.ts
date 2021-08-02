@@ -145,13 +145,26 @@ export class RestUserService {
         'Authorization': 'Bearer ' + this.getToken()
       })
     }
-    return this.http.put(`${this.uri}usuarios/${id}/image`, fileBuffer, config).pipe(map(this.extractData), catchError((error:any) => {
+    console.log(fileBuffer);
+    return this.http.put(`${this.uri}usuarios/${id}/image`, file, config).pipe(map(this.extractData), catchError((error:any) => {
       Swal.fire({
         icon: 'error',
         title: 'Error al subir una imagen',
         text: error.error.message
       })
+      console.log(error);
       return throwError(error)
+    }))
+  }
+
+  deleteOneShoppingCar(idProduct:any, idUsuario:any){
+    return this.http.put(`${this.uri}usuarios/shoppingCarOneProduct/${idProduct}/${idUsuario}`, this.httpOptionsAuth).pipe(map(this.extractData), catchError((error:any) => {
+      Swal.fire({
+        icon: 'error',
+        title: 'Error al eliminar un producto del carrito',
+        text: error.error.message
+      })
+      return throwError(error);
     }))
   }
 

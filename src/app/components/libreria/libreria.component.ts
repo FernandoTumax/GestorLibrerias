@@ -21,6 +21,8 @@ export class LibreriaComponent implements OnInit {
   public libreriaLocal:any;
   public libreriaBack:any;
   public imagenLibreria:any;
+  public imageBuffer:any;
+  public imagenSeleccionada:any;
 
   constructor(private restLibreria:RestLibreriaService, private restUser:RestUserService, private router:Router) {
       this.libreria = this.restLibreria.getLibreria();
@@ -57,6 +59,26 @@ export class LibreriaComponent implements OnInit {
         timer: 5500
       })
       window.location.reload();
+    })
+  }
+
+  seleccionarFoto(event:any){
+    this.imagenSeleccionada = event.target.files[0];
+    console.log(this.imagenSeleccionada);
+  }
+
+  subirFoto(){
+    this.imagenSeleccionada.arrayBuffer().then((buff:any) => {
+      this.imageBuffer = new Uint8Array(buff)
+      this.restLibreria.uploadImg(this.libreriaLocal._id, this.imagenSeleccionada, this.imageBuffer).subscribe((res:any) => {
+        Swal.fire({
+          icon: 'success',
+          title: `La imagen para la libreria ${this.libreriaLocal.name} ha sido actualizada`,
+          showConfirmButton: true,
+          timer: 5500
+        })
+        window.location.reload();
+      })
     })
   }
 
